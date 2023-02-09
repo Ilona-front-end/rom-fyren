@@ -2,13 +2,13 @@ import { createClient } from '@supabase/supabase-js';
 
 // make a connection to supabase
 
-const supabase = createClient{
+const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
   import.meta.env.VITE_SUPABASE_KEY
-};
+)
 
 async function signupUser(email, password) {
-  let { data, error } = await supabase.auth.signUp(credentials: {
+  let { data, error } = await supabase.auth.signUp({
     email: email,
     password: password
   })
